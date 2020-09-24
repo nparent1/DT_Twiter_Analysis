@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB R2019a"><title>Donald Trump Tweet Author Analysis</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.7999992370605px; min-height: 0px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: normal; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: normal; text-align: left;  }
+.S2 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: bold; text-align: left;  }
+.CodeBlock { background-color: #F7F7F7; margin: 10px 0 10px 0;}
+.S3 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 0px none rgb(0, 0, 0); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 17.2339992523193px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 14px;  }
+.S4 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 0px none rgb(0, 0, 0); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 17.2339992523193px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 14px;  }
+.S5 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 17.2339992523193px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 14px;  }
+.S6 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px; padding: 0px 45px 4px 13px; line-height: 17.2339992523193px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 14px;  }
+.S7 { color: rgb(64, 64, 64); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 14px; overflow-x: hidden; line-height: 17.2339992523193px;  }
+.embeddedOutputsErrorElement {min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+.embeddedOutputsWarningElement{min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+.diagnosticMessage-wrapper {font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {color: rgb(255,100,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {color: rgb(255,100,0); text-decoration: underline;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {color: rgb(230,0,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {color: rgb(230,0,0); text-decoration: underline;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart {white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {white-space: pre; word-wrap: initial; min-height: 18px; max-height: 250px; overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {padding-top: 3px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {min-height: 16px;}
+.rightPaneElement .textElement {padding-top: 2px; padding-left: 9px;}
+.S8 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 0px none rgb(0, 0, 0); border-radius: 0px; padding: 6px 45px 0px 13px; line-height: 17.2339992523193px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 14px;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Donald Trump Tweet Author Analysis</span></h1><div  class = 'S1'><span>This personal project looks at data from president Trump's Twitter. Donald Trump used to tweet from an iphone while his campaign staff tweeted through his account on Android, so this data can be used to train a neural network to predict who wrote his newer tweets based on a set of features to include how often he used certain words and how long the tweets were.</span></div><h2  class = 'S2'><span>Load Data</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span style="color: rgb(34, 139, 34);">% Uncomment this on first run to load in data, takes a while</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span style="color: rgb(34, 139, 34);">% opts = detectImportOptions('dataset.xlsx');</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span style="color: rgb(34, 139, 34);">% opts.SelectedVariableNames = [8 12:334];</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span style="color: rgb(34, 139, 34);">% X = readmatrix('dataset.xlsx',opts);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span style="color: rgb(34, 139, 34);">% opts.SelectedVariableNames = 2;</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span style="color: rgb(34, 139, 34);">% Y = readmatrix('dataset.xlsx',opts);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>load(</span><span style="color: rgb(160, 32, 240);">'X.mat'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>load(</span><span style="color: rgb(160, 32, 240);">'Y.mat'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>s = string(Y);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>id = s == </span><span style="color: rgb(160, 32, 240);">"Twitter for iPhone" </span><span>| s == </span><span style="color: rgb(160, 32, 240);">"Twitter for Android"</span><span>;</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>s = s(id);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>X = X(id,:);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>Y = s == </span><span style="color: rgb(160, 32, 240);">"Twitter for iPhone"</span><span>;</span></span></div></div></div><h2  class = 'S2'><span>Mean normalize X</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>non_present = max(X) == 0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>X = X(:,~non_present);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>X = (X - repmat(mean(X), size(X,1), 1)) ./ repmat(2*std(X), size(X,1), 1);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>X = [ones(size(X,1),1) X];</span></span></div></div></div><h2  class = 'S2'><span>Divide data</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>m = size(X,1);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>[trainInd,valInd,testInd] = dividerand(m,.6,.2,.2);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>X_train = X(trainInd,:);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>Y_train = Y(trainInd,:);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>X_val = X(valInd,:);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>Y_val = Y(valInd,:);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>X_test = X(testInd,:);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>Y_test = Y(testInd,:);</span></span></div></div></div><h2  class = 'S2'><span style=' font-weight: bold; text-decoration: underline;'>Logistic Regression - Train theta</span></h2><div  class = 'S1'><span>Here I will use logistic regression, then I will try a neural network.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>initial_theta = zeros(size(X_train,2),1);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>options = optimoptions(@fminunc,</span><span style="color: rgb(160, 32, 240);">'Algorithm'</span><span>,</span><span style="color: rgb(160, 32, 240);">'Quasi-Newton'</span><span>,</span><span style="color: rgb(160, 32, 240);">'GradObj'</span><span>, </span><span style="color: rgb(160, 32, 240);">'on'</span><span>, </span><span style="color: rgb(160, 32, 240);">'MaxIter'</span><span>, 400); </span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre;"><span>[theta, cost] = fminunc(@(t)(costFunctionReg(t, X_train, Y_train,1)), initial_theta, options);</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="630708D8" data-scroll-top="null" data-scroll-left="null" data-width="749" data-height="87" data-hashorizontaloverflow="false" data-testid="output_0" style="max-height: 261px; width: 779px;"><div class="textElement">Local minimum found.
+
+Optimization completed because the size of the gradient is less than
+the value of the optimality tolerance.
+
+&lt;stopping criteria details&gt;</div></div></div></div><div class="inlineWrapper"><div  class = 'S8'></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>p = predict(theta, X_val);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>success = p == Y_val;</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>success = success(success);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>success_rate = length(success)/length(p);</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre;"><span>fprintf(</span><span style="color: rgb(160, 32, 240);">'Logistic Regression Validation Set Accuracy = %f\n'</span><span>, success_rate);</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="B06FEAB6" data-scroll-top="null" data-scroll-left="null" data-width="749" data-height="18" data-hashorizontaloverflow="false" data-testid="output_1" style="max-height: 261px; width: 779px;"><div class="textElement">Logistic Regression Validation Set Accuracy = 0.850289</div></div></div></div></div><h2  class = 'S2'><span style=' text-decoration: underline;'>Neural Network</span></h2><div  class = 'S1'><span>The neural network is a simple 1-hidden layer neural network. </span></div><h2  class = 'S2'><span>Initialize Thetas</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span style="color: rgb(34, 139, 34);">% nn script</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>hidden_layer_size = 40;</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>input_layer_size = 308;</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>initial_Theta1 = randInitializeWeights(input_layer_size, hidden_layer_size);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>initial_Theta2 = randInitializeWeights(hidden_layer_size, 1);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span style="color: rgb(34, 139, 34);">% Unroll parameters</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>initial_nn_params = [initial_Theta1(:) ; initial_Theta2(:)];</span></span></div></div></div><h2  class = 'S2'><span>Train</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>options = optimset(</span><span style="color: rgb(160, 32, 240);">'MaxIter'</span><span>, 60);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>lambda = 3;</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span style="color: rgb(34, 139, 34);">% Create "short hand" for the cost function to be minimized</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>costFunction = @(p) nnCostFunction(p, input_layer_size, hidden_layer_size, X_train, Y_train, lambda);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span style="color: rgb(34, 139, 34);">% Now, costFunction is a function that takes in only one argument (the</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span style="color: rgb(34, 139, 34);">% neural network parameters)</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre;"><span>[nn_params, ~] = fmincg(costFunction, initial_nn_params, options);</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement scrollableOutput" uid="AC301DEB" data-scroll-top="null" data-scroll-left="null" data-width="749" data-height="843" data-hashorizontaloverflow="false" data-testid="output_2" style="max-height: 261px; width: 779px;"><div class="textElement">Iteration     1 | Cost: 6.980162e-01
+Iteration     2 | Cost: 4.951659e-01
+Iteration     3 | Cost: 4.478344e-01
+Iteration     4 | Cost: 4.135613e-01
+Iteration     5 | Cost: 3.823161e-01
+Iteration     6 | Cost: 3.513519e-01
+Iteration     7 | Cost: 3.427668e-01
+Iteration     8 | Cost: 3.306680e-01
+Iteration     9 | Cost: 3.296712e-01
+Iteration    10 | Cost: 3.237273e-01
+Iteration    11 | Cost: 3.203762e-01
+Iteration    12 | Cost: 3.155860e-01
+Iteration    13 | Cost: 3.138944e-01
+Iteration    14 | Cost: 3.133712e-01
+Iteration    15 | Cost: 3.102120e-01
+Iteration    16 | Cost: 3.082352e-01
+Iteration    17 | Cost: 3.047811e-01
+Iteration    18 | Cost: 3.017493e-01
+Iteration    19 | Cost: 2.973636e-01
+Iteration    20 | Cost: 2.968866e-01
+Iteration    21 | Cost: 2.952505e-01
+Iteration    22 | Cost: 2.940775e-01
+Iteration    23 | Cost: 2.935262e-01
+Iteration    24 | Cost: 2.929661e-01
+Iteration    25 | Cost: 2.921174e-01
+Iteration    26 | Cost: 2.920055e-01
+Iteration    27 | Cost: 2.893992e-01
+Iteration    28 | Cost: 2.861177e-01
+Iteration    29 | Cost: 2.852148e-01
+Iteration    30 | Cost: 2.846142e-01
+Iteration    31 | Cost: 2.845092e-01
+Iteration    32 | Cost: 2.842318e-01
+Iteration    33 | Cost: 2.838166e-01
+Iteration    34 | Cost: 2.836979e-01
+Iteration    35 | Cost: 2.824089e-01
+Iteration    36 | Cost: 2.809137e-01
+Iteration    37 | Cost: 2.763423e-01
+Iteration    38 | Cost: 2.739081e-01
+Iteration    39 | Cost: 2.737138e-01
+Iteration    40 | Cost: 2.694333e-01
+Iteration    41 | Cost: 2.581496e-01
+Iteration    42 | Cost: 2.551452e-01
+Iteration    43 | Cost: 2.516281e-01
+Iteration    44 | Cost: 2.514009e-01
+Iteration    45 | Cost: 2.510815e-01
+Iteration    46 | Cost: 2.497073e-01
+Iteration    47 | Cost: 2.491823e-01
+Iteration    48 | Cost: 2.471236e-01
+Iteration    49 | Cost: 2.463393e-01
+Iteration    50 | Cost: 2.451785e-01
+Iteration    51 | Cost: 2.450664e-01
+Iteration    52 | Cost: 2.436585e-01
+Iteration    53 | Cost: 2.429701e-01
+Iteration    54 | Cost: 2.426089e-01
+Iteration    55 | Cost: 2.402617e-01
+Iteration    56 | Cost: 2.346075e-01
+Iteration    57 | Cost: 2.329964e-01
+Iteration    58 | Cost: 2.254908e-01
+Iteration    59 | Cost: 2.252035e-01
+Iteration    60 | Cost: 2.240138e-01</div></div></div></div><div class="inlineWrapper"><div  class = 'S8'></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>Theta1 = reshape(nn_params(1:hidden_layer_size * (input_layer_size + 1)), hidden_layer_size, (input_layer_size + 1));</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>Theta2 = reshape(nn_params((1 + (hidden_layer_size * (input_layer_size + 1))):end), 1, (hidden_layer_size + 1));</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span> </span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>pred_val = predict_nn(Theta1, Theta2, X_val);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>val_accuracy = mean(double(pred_val == Y_val));</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre;"><span>fprintf(</span><span style="color: rgb(160, 32, 240);">'Logistic Regression Validation Set Accuracy = %f\n'</span><span>, val_accuracy);</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="6E16D699" data-scroll-top="null" data-scroll-left="null" data-width="749" data-height="18" data-hashorizontaloverflow="false" data-testid="output_3" style="max-height: 261px; width: 779px;"><div class="textElement">Logistic Regression Validation Set Accuracy = 0.865171</div></div></div></div></div><h2  class = 'S2'></h2></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Donald Trump Tweet Author Analysis
+% This personal project looks at data from president Trump's Twitter. Donald 
+% Trump used to tweet from an iphone while his campaign staff tweeted through 
+% his account on Android, so this data can be used to train a neural network to 
+% predict who wrote his newer tweets based on a set of features to include how 
+% often he used certain words and how long the tweets were.
+%% Load Data
+
+% Uncomment this on first run to load in data, takes a while
+% opts = detectImportOptions('dataset.xlsx');
+% opts.SelectedVariableNames = [8 12:334];
+% X = readmatrix('dataset.xlsx',opts);
+% opts.SelectedVariableNames = 2;
+% Y = readmatrix('dataset.xlsx',opts);
+load('X.mat');
+load('Y.mat');
+s = string(Y);
+id = s == "Twitter for iPhone" | s == "Twitter for Android";
+s = s(id);
+X = X(id,:);
+Y = s == "Twitter for iPhone";
+%% Mean normalize X
+
+non_present = max(X) == 0;
+X = X(:,~non_present);
+X = (X - repmat(mean(X), size(X,1), 1)) ./ repmat(2*std(X), size(X,1), 1);
+X = [ones(size(X,1),1) X];
+%% Divide data
+
+m = size(X,1);
+[trainInd,valInd,testInd] = dividerand(m,.6,.2,.2);
+X_train = X(trainInd,:);
+Y_train = Y(trainInd,:);
+X_val = X(valInd,:);
+Y_val = Y(valInd,:);
+X_test = X(testInd,:);
+Y_test = Y(testInd,:);
+%% *Logistic Regression - Train theta*
+% Here I will use logistic regression, then I will try a neural network.
+
+initial_theta = zeros(size(X_train,2),1);
+options = optimoptions(@fminunc,'Algorithm','Quasi-Newton','GradObj', 'on', 'MaxIter', 400); 
+[theta, cost] = fminunc(@(t)(costFunctionReg(t, X_train, Y_train,1)), initial_theta, options);
+
+p = predict(theta, X_val);
+success = p == Y_val;
+success = success(success);
+success_rate = length(success)/length(p);
+fprintf('Logistic Regression Validation Set Accuracy = %f\n', success_rate);
+%% Neural Network
+% The neural network is a simple 1-hidden layer neural network. 
+%% Initialize Thetas
+
+% nn script
+hidden_layer_size = 40;
+input_layer_size = 308;
+
+initial_Theta1 = randInitializeWeights(input_layer_size, hidden_layer_size);
+initial_Theta2 = randInitializeWeights(hidden_layer_size, 1);
+
+% Unroll parameters
+initial_nn_params = [initial_Theta1(:) ; initial_Theta2(:)];
+%% Train
+
+options = optimset('MaxIter', 60);
+lambda = 3;
+
+% Create "short hand" for the cost function to be minimized
+costFunction = @(p) nnCostFunction(p, input_layer_size, hidden_layer_size, X_train, Y_train, lambda);
+
+% Now, costFunction is a function that takes in only one argument (the
+% neural network parameters)
+[nn_params, ~] = fmincg(costFunction, initial_nn_params, options);
+
+Theta1 = reshape(nn_params(1:hidden_layer_size * (input_layer_size + 1)), hidden_layer_size, (input_layer_size + 1));
+Theta2 = reshape(nn_params((1 + (hidden_layer_size * (input_layer_size + 1))):end), 1, (hidden_layer_size + 1));
+ 
+pred_val = predict_nn(Theta1, Theta2, X_val);
+val_accuracy = mean(double(pred_val == Y_val));
+fprintf('Logistic Regression Validation Set Accuracy = %f\n', val_accuracy);
+%%
+##### SOURCE END #####
+--></body></html>

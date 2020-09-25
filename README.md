@@ -5,3 +5,5 @@ This personal project looks at data from president Trump's Twitter. Donald Trump
 I used both logistic regression and a simple neural network, both implemented in matlab myself. They ended up working about the same.
 
 The full data set is too large to upload here but here's a link: https://drive.google.com/file/d/1NF8q98BrK2QK5dcGuxY15O4JI-Xm6dhW/view?usp=sharing
+
+Best to look at Final_Solution.pdf
